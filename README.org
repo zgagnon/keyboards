@@ -29,6 +29,16 @@
 #+RESULTS: builder
 : Success
 
+#+NAME: clean
+#+begin_src elisp
+(defalias 'sh 'shell-command-to-string)
+(sh "rm -rf keymap.c qmk_firmware rules.mk")
+(princ "done")
+#+end_src
+
+#+RESULTS: clean
+: done
+
 * Rules
 :PROPERTIES:
 :header-args: :tangle rules.mk :comments c
