@@ -8,6 +8,9 @@
 #+NAME: builder
 #+begin_src elisp
 (defalias 'sh 'shell-command-to-string)
+(defmacro in-qmk (command)
+  `(sh ,(concat "cd qmk_firmware && " command)))
+
 (if (file-directory-p "qmk_firmware")
  (princ "found")
  (sh "git clone https://github.com/qmk/qmk_firmware.git"))
@@ -17,13 +20,14 @@
 (sh "mkdir qmk_firmware/keyboards/waterfowl/keymaps/zgagnon")
 (sh "cp keymap.c qmk_firmware/keyboards/waterfowl/keymaps/zgagnon")
 (sh "cp rules.mk qmk_firmware/keyboards/waterfowl/")
-(sh "cd qmk_firmware && make git-submodule")
-(sh "cd qmk_firmware && nix-shell --command \"qmk compile -kb waterfowl -km zgagnon\"")
-(sh "cd qmk_firmware && cp waterfowl_zgagnon.hex ..")
+(in-qmk "make git-submodule")
+(in-qmk "nix-shell --command \"qmk compile -kb waterfowl -km zgagnon\"")
+(in-qmk "cp waterfowl_zgagnon.hex ..")
 (princ "Success")
 #+end_src
 
 #+RESULTS: builder
+: Success
 
 * Rules
 :PROPERTIES:
