@@ -3,6 +3,28 @@
 :header-args: :tangle keymap.c :comments org
 :END:
 
+* Building
+
+#+NAME: builder
+#+begin_src elisp
+(defalias 'sh 'shell-command-to-string)
+(if (file-directory-p "qmk_firmware")
+ (princ "found")
+ (sh "git clone https://github.com/qmk/qmk_firmware.git"))
+
+(org-babel-tangle-file "README.org")
+
+(sh "mkdir qmk_firmware/keyboards/waterfowl/keymaps/zgagnon")
+(sh "cp keymap.c qmk_firmware/keyboards/waterfowl/keymaps/zgagnon")
+(sh "cp rules.mk qmk_firmware/keyboards/waterfowl/")
+(sh "cd qmk_firmware && make git-submodule")
+(sh "cd qmk_firmware && nix-shell --command \"qmk compile -kb waterfowl -km zgagnon\"")
+(sh "cd qmk_firmware && cp waterfowl_zgagnon.hex ..")
+(princ "Success")
+#+end_src
+
+#+RESULTS: builder
+
 * Rules
 :PROPERTIES:
 :header-args: :tangle rules.mk :comments c
@@ -251,24 +273,3 @@ Controlling windows in a tiling window manager
       KC_1, TO(_COLEMAK), LT(1, KC_SPC), KC_ESC, KC_CAPS, KC_NUM, KC_ENT, KC_BSPC, LT(2, KC_ENT), KC_4),
 };
 #+end_src
-
-* Building
-
-#+NAME: builder
-#+begin_src elisp
-(defalias 'sh 'shell-command-to-string)
-(if (file-directory-p "qmk_firmware")
- (princ "found")
- (sh "git clone https://github.com/qmk/qmk_firmware.git"))
-
-(org-babel-tangle-file "README.org")
-
-(sh "mkdir qmk_firmware/keyboards/waterfowl/keymaps/zgagnon")
-(sh "cp keymap.c qmk_firmware/keyboards/waterfowl/keymaps/zgagnon")
-(sh "cp rules.mk qmk_firmware/keyboards/waterfowl/")
-(sh "cd qmk_firmware && make git-submodule")
-(sh "cd qmk_firmware && nix-shell --command \"qmk compile -kb waterfowl -km zgagnon\"")
-(sh "cd qmk_firmware && cp waterfowl_zgagnon.hex ..")
-#+end_src
-
-#+RESULTS: builder
