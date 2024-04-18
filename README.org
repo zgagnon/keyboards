@@ -5,6 +5,10 @@
 
 * Building
 
+Simple script to build the keymap. It will clone the qmk repo and nix
+dependencies before assembling the keyboard code and building the
+firmware file
+
 #+NAME: builder
 #+begin_src elisp
 (defalias 'sh 'shell-command-to-string)
@@ -26,6 +30,7 @@
 (princ "Success")
 #+end_src
 
+Tiny script to clean up all the stuff left over from building
 #+RESULTS: builder
 : Success
 
