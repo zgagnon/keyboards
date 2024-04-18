@@ -3,6 +3,8 @@
 :header-args: :tangle keymap.c :comments org
 :END:
 
+#+OPTIONS: toc:2
+
 * Building
 
 Simple script to build the keymap. It will clone the qmk repo and nix
