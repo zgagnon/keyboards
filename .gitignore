@@ -1,0 +1,7 @@
+build
+keymap.c
+qmk_firmware/
+rules.c
+rules.mk
+shell.nix
+waterfowl_zgagnon.hex
