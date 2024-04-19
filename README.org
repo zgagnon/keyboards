@@ -48,7 +48,7 @@ Tiny script to clean up all the stuff left over from building
 #+NAME: clean
 #+begin_src elisp
 (defalias 'sh 'shell-command-to-string)
-(sh "rm -rf keymap.c qmk_firmware rules.mk")
+(sh "rm -rf keymap.c qmk_firmware rules.mk waterfowl.c")
 (princ "done")
 #+end_src
 
