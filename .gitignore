@@ -6,3 +6,4 @@ rules.mk
 shell.nix
 waterfowl_zgagnon.hex
 waterfowl.c
+config.h
