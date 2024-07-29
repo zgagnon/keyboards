@@ -210,18 +210,18 @@ The bottom to rows of the standard colemak
 The top two rows of a standard colemak
 
 #+NAME: colmak
-| 1L | 2L | 3L | 4L      | 5L      | L Roller | R Roller | 1R    | 2R     | 3R | 4R | 5R |
-| -  | -  | -  | -       | -       | -        | -        | -     | -      | -  | -  | -  |
-| Q  | W  | F  | P       | G       | -        | -        | J     | L      | U  | Y  | "  |
-| 1  | 2  | 3  | 4       | 5       | -        | -        | 6     | 7      | 8  | 9  | 0  |
-|    | 1  |    | SuShift | DeShift | Shift    | Enter    | Space | Escape |    | 4  |    |
-|    |    |    |         |         |          |          |       |        |    |    |    |
+| 1L | 2L | 3L | 4L      | 5L      | L Roller | R Roller | 1R  | 2R     | 3R | 4R | 5R |
+| -  | -  | -  | -       | -       | -        | -        | -   | -      | -  | -  | -  |
+| Q  | W  | F  | P       | G       | -        | -        | J   | L      | U  | Y  | "  |
+| 1  | 2  | 3  | 4       | 5       | -        | -        | 6   | 7      | 8  | 9  | 0  |
+|    | 1  |    | SuShift | DeShift | Shift    | Enter    | Tab | Escape |    | 4  |    |
+|    |    |    |         |         |          |          |     |        |    |    |    |
 #+begin_src c
     [_UP] = LAYOUT(
       KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
       KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, KC_QUOT,
       KC_1,KC_2,KC_3,KC_4,KC_5,KC_6,KC_7,KC_8,KC_9,KC_0,
-      KC_1, MO(_SUSHIFT), KC_NO, KC_LSFT, KC_ESC, LGUI(LCTL(LSFT(KC_4))), KC_ENT, LT(_SPOON, KC_SPC), KC_ESC, KC_4),
+      KC_1, MO(_SUSHIFT), KC_NO, KC_LSFT, KC_ESC, LGUI(LCTL(LSFT(KC_4))), KC_ENT, KC_TAB, KC_ESC, KC_4),
 #+end_src
 
 *** Super Shift
