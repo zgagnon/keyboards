@@ -82,8 +82,8 @@ Create a named org mode code block called macros that is json syntax
 
 [
 "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",
-"KC_NO","KC_NO","HYPR(KC_UP)","KC_NO","KC_NO","KC_NO","LCAG(KC_I)","LCAG(KC_COMMA)","LCAG(KC_UP)","LCAG(KC_DOT)","HYPR(KC_1)","KC_NO",
-"KC_NO","HYPR(KC_LEFT)","HYPR(KC_DOWN)","HYPR(KC_RGHT)","KC_NO","KC_NO","HYPR(KC_3)","LCAG(KC_LEFT)","LCAG(KC_DOWN)","LCAG(KC_RGHT)","HYPR(KC_2)","KC_NO",
+"KC_NO","KC_NO","KC_3","HYPR(KC_UP)","KC_NO","KC_NO","LCAG(KC_I)","LCAG(KC_COMMA)","LCAG(KC_UP)","LCAG(KC_DOT)","HYPR(KC_1)","KC_NO",
+"KC_NO","KC_NO", "HYPR(KC_LEFT)","HYPR(KC_DOWN)","HYPR(KC_RGHT)","KC_NO","HYPR(KC_3)","LCAG(KC_LEFT)","LCAG(KC_DOWN)","LCAG(KC_RGHT)","HYPR(KC_2)","KC_NO",
 "KC_NO","RGB_TOG","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","HYPR(KC_R)","LCAG(KC_R)","KC_NO",
 "KC_NO",
 "KC_NO",
