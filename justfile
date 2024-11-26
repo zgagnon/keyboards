@@ -64,11 +64,15 @@ qmk_firmware:
   cd qmk_firmware
   git submodule update --init --recursive
 
-setup:
+setup: clean-hex
   #!/bin/bash
   echo "Setting up"
   cd qmk_firmware
   nix run nixpkgs#qmk -- setup
+
+clean-hex:
+  @echo "Cleaning up hex files"
+  rm -rf qmk_firmware/*.hex
 
 clean:
   @echo "Cleaning up"
