@@ -1,3 +1,24 @@
+* Headers
+:PROPERTIES:
+:header-args: :tangle config.h :comments org
+:END:
+
+#+begin_src c
+
+#pragma once
+
+#define OLED_DISPLAY_128X64
+
+#define SPLIT_USB_DETECT
+
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+
+
+#define TAPPING_TERM 200
+#define TAPPING_TERM_PER_KEY
+
+#+end_src
+
 
 * Rules
 :PROPERTIES:
@@ -178,7 +199,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, KC_QUOT,
       MT(MOD_LGUI, KC_A), MT(MOD_LALT, KC_R), MT(MOD_LCTL, KC_S), KC_T, KC_D, KC_H, MT(MOD_LSFT, KC_N), MT(MOD_LCTL, KC_E), KC_I, MT(MOD_LGUI, KC_O),
       KC_Z, KC_X, KC_C, KC_V, KC_B, KC_K, KC_M, KC_COMM, KC_DOT, KC_SCLN,
-      KC_1, MO(_SUSHIFT), LT(_DESHIFT, KC_BSPC), KC_LSFT, KC_ESC, LGUI(LCTL(LSFT(KC_4))), KC_ENT, LT(_SPOON, KC_SPC), KC_ESC, KC_4),
+      KC_1, LT(_SUSHIFT, KC_TAB), LT(_DESHIFT, KC_BSPC), KC_LSFT, KC_ESC, LGUI(LCTL(LSFT(KC_4))), KC_ENT, LT(_SPOON, KC_SPC), KC_ESC, KC_4),
 #+end_src
 
 *** Super Shift

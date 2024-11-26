@@ -43,6 +43,11 @@ The combo feature allows chording to send unique key codes
 COMBO_ENABLE = no # Enables combos
 #+end_src
 
+Tap Dance
+#+begin_src c
+TAP_DANCE = yes
+#+end_src
+
 Add in Caps Word to reduce the cost of shifting
 #+begin_src c
 CAPS_WORD_ENABLE = yes
@@ -117,6 +122,22 @@ enum layer_names {
     _FUNC,
     _SPOON,
     _COLELINX,
+};
+#+end_src
+
+** Tap Dance Keys
+#+begin_src c
+
+//Tap Dance Declarations
+enum {
+  TD_ESC_CAPS = 0
+};
+
+//Tap Dance Definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+  //Tap once for Esc, twice for Caps Lock
+  [TD_ESC_CAPS]  = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS)
+// Other declarations would go here, separated by commas, if you have them
 };
 #+end_src
 
@@ -201,7 +222,7 @@ The bottom to rows of the standard colemak
 #+begin_src c
     [_HOME] = LAYOUT(
       KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      MT(MOD_LGUI, KC_A), MT(MOD_LALT, KC_R), MT(MOD_LCTL, KC_S), KC_T, KC_D, KC_H, MT(MOD_LSFT, KC_N), MT(MOD_LCTL, KC_E), KC_I, MT(MOD_LGUI, KC_O),
+      MT(MOD_LGUI, KC_A), MT(MOD_LALT, KC_R), MT(MOD_LCTL, KC_S), KC_T, KC_D, KC_H, MT(MOD_LSFT, KC_N), MT(MOD_LCTL, KC_E),  MT(MOD_LGUI, KC_I), MT(MOD_LGUI, KC_O),
       KC_Z, KC_X, KC_C, KC_V, KC_B, KC_K, KC_M, KC_COMM, KC_DOT, KC_SCLN,
       KC_1, LT(_SUSHIFT, KC_TAB), LT(_UP, KC_BSPC), KC_LSFT, KC_ESC, LGUI(LCTL(LSFT(KC_4))), KC_ENT, LT(_SPOON, KC_SPC), KC_ESC, KC_4),
 #+end_src
@@ -219,7 +240,7 @@ The top two rows of a standard colemak
 #+begin_src c
     [_UP] = LAYOUT(
       KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
-      KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, KC_QUOT,
+      KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, MT(MOD_LGUI, KC_QUOT),
       KC_1,KC_2,KC_3,KC_4,KC_5,KC_6,KC_7,KC_8,KC_9,KC_0,
       KC_1, MO(_SUSHIFT), KC_NO, KC_LSFT, KC_ESC, LGUI(LCTL(LSFT(KC_4))), KC_ENT, KC_TAB, KC_ESC, KC_4),
 #+end_src
@@ -237,25 +258,25 @@ A layer for all the symbols. Includes commonly used arrows
     [_SUSHIFT] = LAYOUT(
       KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
       KC_HASH, KC_EXLM, KC_LPRN, KC_RPRN, KC_PIPE, KC_EQL, QK_LEQU, QK_EARO, QK_GEQU, KC_PLUS,
-      KC_DLR, KC_MINUS, KC_LCBR, KC_RCBR, KC_AMPR, KC_0, KC_TILD, KC_GRV, KC_QUES, KC_ASTR,
+      KC_DLR, KC_MINUS, KC_LCBR, KC_RCBR, KC_AMPR, KC_0, KC_TILD, KC_GRV, KC_SLASH, KC_ASTR,
       KC_1, KC_4, KC_BSPC, KC_LSFT, KC_CAPS, KC_NUM, KC_NO,MO(_SUSHIFT_UP), LGUI(KC_F2), KC_4),
 #+end_src
 
 *** Super Shift UP
 
 A layer for all the symbols. Includes commonly used arrows
-| 1L | 2L | 3L | 4L      | 5L        | L Roller | R Roller | 1R        | 2R      | 3R          | 4R | 5R |
-| -  | -  | -  | -       | -         | -        | -        | -         | -       | -           | -  | -  |
-| -  | -  | -  | -       | -         | -        | -        | _         | FunPipe | -           | -  | -  |
-| %  | @  | [  | ]       | \         | -        | -        | /         | <-      | ->          | ^  | -  |
-| -  | 1  | -  | Colmack | Backspace | Shift    | -        | Backspace | Raycast | -           | 4  | -  |
+| 1L | 2L | 3L | 4L | 5L        | L Roller | R Roller | 1R        | 2R      | 3R | 4R | 5R |
+| -  | -  | -  | -  | -         | -        | -        | -         | -       | -  | -  | -  |
+| -  | -  | -  | -  | -         | -        | -        | _         | FunPipe | -  | -  | -  |
+| %  | @  | [  | ]  | \         | -        | -        | /         | <-      | -> | ^  | -  |
+| -  | 1  | -  | -  | Backspace | Shift    | -        | Backspace | Raycast | -  | 4  | -  |
 
 #+begin_src c
     [_SUSHIFT_UP] = LAYOUT(
       KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,
       KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,KC_UNDS,QK_ELXPIP,KC_NO,KC_NO,KC_NO,
       KC_PERC, KC_AT, KC_LBRC, KC_RBRC, KC_BSLS, KC_SLSH, QK_LARO, QK_RARO, KC_CIRC, KC_MINS,
-      KC_1, TO(_COLEMAK), KC_BSPC, KC_LSFT, KC_CAPS, KC_NUM, KC_NO, KC_BSPC, LGUI(KC_F2), KC_4),
+      KC_1, KC_NO, KC_BSPC, KC_LSFT, KC_CAPS, KC_NUM, KC_NO, KC_BSPC, LGUI(KC_F2), KC_4),
 #+end_src
 
 *** PaperWM Layer
@@ -271,7 +292,7 @@ Controlling windows in a tiling window manager
       KC_NO,       KC_NO,         KC_NO,        KC_NO,          KC_NO,      KC_NO,          KC_NO   ,KC_NO  ,KC_NO   ,KC_NO,
       LCAG(KC_R),  LCAG(KC_F),    LCAG(KC_UP),  HYPR(KC_1),     LCAG(KC_I),LCAG(LSFT(KC_2)),KC_NO   ,KC_UP  ,KC_NO   ,KC_NO,
       KC_LSFT,     LCAG(KC_LEFT), LCAG(KC_DOWN),LCAG(KC_RIGHT), LCAG(KC_O),LCAG(LSFT(KC_3)),KC_LEFT ,KC_DOWN,KC_RIGHT,KC_NO,
-      KC_1, TO(_COLEMAK), LT(1, KC_SPC), KC_ESC, KC_CAPS, KC_NUM, KC_ENT, KC_BSPC, LT(2, KC_ENT), KC_4)
+      KC_1, KC_NO, KC_NO, KC_ESC, KC_CAPS, KC_NUM, KC_ENT, KC_BSPC, KC_NO, KC_4)
 };
 #+end_src
 

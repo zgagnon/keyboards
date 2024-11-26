@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "notes": "",
+  "documentation": "\"This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\"\n",
+  "keyboard": "keebio/iris/rev6",
+  "keymap": "keebio_iris_rev6_layout_mine",
+  "layout": "LAYOUT",
+  "macros": [
+  ["|>"], ["<-"], ["->"], ["<="], ["=>"]
+  ],
+  "layers": [
+          [
+          "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",
+          "KC_NO","KC_Q","KC_W","KC_F","KC_P","KC_G","KC_J","KC_L","KC_U","KC_Y","KC_QUOT","KC_NO",
+          "KC_NO","LGUI_T(KC_A)","LALT_T(KC_R)","LCTL_T(KC_S)","KC_T", "KC_D","KC_H", "KC_N","KC_E","KC_I","RGUI_T(KC_O)","KC_NO",
+          "KC_NO","KC_Z","KC_X", "KC_C","KC_V", "KC_B","QK_BOOT","KC_NO", "KC_K","KC_M","KC_COMM","KC_DOT","KC_SCLN","KC_NO",
+          "LT(2,KC_TAB)","LT(1,KC_BSPC)","KC_LSFT","KC_ENT","LT(3,KC_SPC)","KC_ESC"
+          ],
+          
+          [
+            "KC_NO","KC_NO","KC_NO",  "KC_NO",  "KC_NO",   "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",
+            "KC_NO","KC_NO","KC_UP",  "KC_UP",  "KC_NO",   "KC_NO","QK_MACRO_0","KC_P7","KC_P8","KC_P9","KC_NO","KC_NO",
+            "KC_NO","KC_NO","KC_LEFT","KC_DOWN","KC_RIGHT","KC_NO","KC_UNDS",   "KC_P4","KC_P5","KC_P6","KC_NO","KC_NO",
+            "KC_NO","KC_NO","KC_NO",  "KC_NO",  "KC_NO",   "KC_NO","KC_NO",     "KC_NO","KC_0","KC_P1","KC_P2","KC_P3",
+            "KC_NO","KC_NO","KC_NO",  "KC_NO",  "KC_NO", "LGUI(KC_F2)",  "KC_NO","KC_P0"
+          ],
+      
+      [
+      "KC_NO","KC_NO","KC_NO",  "KC_NO",  "KC_NO",   "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",
+      "KC_NO","KC_PERC","KC_AT","KC_LBRC","KC_RBRC","KC_BSLS","KC_SLSH","QK_MACRO_1","QK_MACRO_2","KC_CIRC","KC_MINS","KC_NO",
+      "KC_NO","KC_HASH","KC_EXLM","KC_LPRN","KC_RPRN","KC_PIPE","KC_EQL", "QK_MACRO_3","QK_MACRO_4","KC_NO","KC_PLUS","KC_NO",
+      "KC_NO","KC_DLR", "KC_NO",  "KC_LCBR","KC_RCBR","KC_AMPR","KC_NO","KC_NO","KC_0",   "KC_TILD","KC_GRV","KC_QUES","KC_ASTR","KC_NO","KC_NO",  "KC_NO",  "KC_NO", "KC_DEL",  "KC_NO","KC_P0"
+      ],
+      
+      [
+      "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",
+      "KC_NO","KC_NO","HYPR(KC_UP)","KC_NO","KC_NO","KC_NO","LCAG(KC_I)","LCAG(KC_COMMA)","LCAG(KC_UP)","LCAG(KC_DOT)","HYPR(KC_1)","KC_NO",
+      "KC_NO","HYPR(KC_LEFT)","HYPR(KC_DOWN)","HYPR(KC_RGHT)","KC_NO","KC_NO","HYPR(KC_3)","LCAG(KC_LEFT)","LCAG(KC_DOWN)","LCAG(KC_RGHT)","HYPR(KC_2)","KC_NO",
+      "KC_NO","RGB_TOG","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","KC_NO","HYPR(KC_R)","LCAG(KC_R)","KC_NO",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO"
+          ]
+  ],
+  "author": ""
+}

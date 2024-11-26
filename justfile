@@ -5,6 +5,9 @@ set fallback
 default:
   @just waterfowl-36
 
+create-iris:
+  mkdir -p qmk_firmware/keyboards/keebio/iris/keymaps/zgagnon/
+
 create-waterfowl: qmk_firmware
   mkdir -p qmk_firmware/keyboards/waterfowl/keymaps/zgagnon/
 
@@ -13,6 +16,14 @@ tangle layout:
   echo "Tangling layout: {{layout}}"
   cd {{layout}}
   emacs --batch --eval "(require 'org)" --eval "(org-babel-tangle-file \"{{layout}}.org\")"
+
+insert-iris layout: (tangle layout) create-iris
+  #!/bin/bash
+  echo "Inserting layout: {{layout}}"
+  cd {{layout}}
+  ls
+  pwd
+  cp keymap.json ../qmk_firmware/keyboards/keebio/iris/keymaps/zgagnon/
 
 insert-layout layout: (tangle layout) create-waterfowl
   #!/bin/bash
@@ -24,6 +35,11 @@ insert-layout layout: (tangle layout) create-waterfowl
   cp waterfowl.c ../qmk_firmware/keyboards/waterfowl/
   cp config.h ../qmk_firmware/keyboards/waterfowl/
   
+iris: qmk_firmware setup  (insert-iris 'iris')
+  #!/bin/bash
+  echo "Building iris"
+  cd qmk_firmware
+  nix run nixpkgs#qmk -- compile -kb keebio/iris/rev6 -km zgagnon
 
 waterfowl-36: qmk_firmware setup  (insert-layout 'waterfowl-36')
   #!/bin/bash
